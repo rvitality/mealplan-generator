@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { ReactQueryClientProvider } from "@/app/components/react-query-client-provider";
 import { ClerkProvider, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
+import "./globals.css";
+
+// Components
 import Navbar from "@/components/navbar";
+import CreateProfileOnSignIn from "./components/create-profile";
 
 export const metadata: Metadata = {
     title: "AI Meal Plans | Simple SaaS Demo",
@@ -15,13 +19,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <ClerkProvider>
-            <html lang='en'>
-                <body className='bg-gray-50 text-gray-900'>
-                    <Navbar />
-                    <main className='max-w-7xl mx-auto pt-16 p-4 min-h-screen'>{children}</main>
-                </body>
-            </html>
-        </ClerkProvider>
+        <html lang='en'>
+            <body className='bg-gray-50 text-gray-900'>
+                <ReactQueryClientProvider>
+                    <ClerkProvider>
+                        <CreateProfileOnSignIn />
+                        <Navbar />
+
+                        <main className='max-w-7xl mx-auto pt-16 p-4 min-h-screen'>{children}</main>
+                    </ClerkProvider>
+                </ReactQueryClientProvider>
+            </body>
+        </html>
     );
 }
