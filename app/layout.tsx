@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { ReactQueryClientProvider } from "@/app/components/react-query-client-provider";
+import { ReactQueryClientProvider } from "@/components/react-query-client-provider";
 import { ClerkProvider, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 import "./globals.css";
 
 // Components
 import Navbar from "@/components/navbar";
-import CreateProfileOnSignIn from "./components/create-profile";
+import CreateProfileOnSignIn from "@/components/create-profile";
 
 export const metadata: Metadata = {
     title: "AI Meal Plans | Simple SaaS Demo",
