@@ -39,7 +39,6 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ url: session.url });
     } catch (error) {
         const err = error as Error;
-
         console.error("Checkout API Error:", err.message);
         return NextResponse.json({ error: err.message || "Internal Server Error" }, { status: 500 });
     }

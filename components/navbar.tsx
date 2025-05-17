@@ -28,6 +28,10 @@ export default function NavBar() {
 
                 {/* Navigation Links */}
                 <div className='space-x-6 flex items-center'>
+                    <Link href={"/subscribe"} className='text-gray-700 hover:text-emerald-500 transition-colors'>
+                        Subscribe
+                    </Link>
+
                     {/* Authentication Buttons */}
                     <SignedIn>
                         <Link href='/mealplan' className='text-gray-700 hover:text-emerald-500 transition-colors'>
@@ -60,12 +64,6 @@ export default function NavBar() {
                     <SignedOut>
                         <Link href='/' className='text-gray-700 hover:text-emerald-500 transition-colors'>
                             Home
-                        </Link>
-                        <Link
-                            href={isSignedIn ? "/subscribe" : "/sign-up"}
-                            className='text-gray-700 hover:text-emerald-500 transition-colors'
-                        >
-                            Subscribe
                         </Link>
 
                         <Link
